@@ -7,7 +7,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.174"
+    ComputedModelVersion    "1.175"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -96,7 +96,7 @@ Model {
 	  LoadSaveID		  "98"
 	  Extents		  [1626.0, 896.0]
 	  ZoomFactor		  [1.75]
-	  Offset		  [-65.387036293643732, -82.282274388881632]
+	  Offset		  [-65.387036293643746, -82.282274388881632]
 	}
 	Object {
 	  $ObjectID		  10
@@ -135,9 +135,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "ben"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Mon Feb 19 20:02:19 2018"
-  RTWModifiedTimeStamp	  440971104
-  ModelVersionFormat	  "1.%<AutoIncrement:174>"
+  LastModifiedDate	  "Fri Feb 23 11:07:06 2018"
+  RTWModifiedTimeStamp	  441284778
+  ModelVersionFormat	  "1.%<AutoIncrement:175>"
   ConfigurationManager	  "none"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -2049,7 +2049,7 @@ Model {
 	  Type			  "edit"
 	  Name			  "Ts"
 	  Prompt		  "Ts [s]:"
-	  Value			  "0.001"
+	  Value			  "0.01"
 	  Tunable		  "off"
 	}
       }
@@ -3426,7 +3426,7 @@ Model {
 	  Type			  "edit"
 	  Name			  "K"
 	  Prompt		  "Gain matrix [2x2]:"
-	  Value			  "[5000 0; 0 5000]"
+	  Value			  "[50 0; 0 50]"
 	  Tunable		  "off"
 	}
       }
