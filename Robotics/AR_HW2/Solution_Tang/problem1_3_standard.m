@@ -1,7 +1,7 @@
 clc; clear; close all
 %% Initial parameters
 for s = 0:4
-    theta = -(pi/12 + (5*pi/12 * s /5));
+    theta = (pi/12 + (5*pi/12 * s /5));
     sim_ang = [-pi/4, theta, -2*theta]';
     [link_x,link_y,link_z,Jacobian] = problem1_fkine(sim_ang);
     figure(1)

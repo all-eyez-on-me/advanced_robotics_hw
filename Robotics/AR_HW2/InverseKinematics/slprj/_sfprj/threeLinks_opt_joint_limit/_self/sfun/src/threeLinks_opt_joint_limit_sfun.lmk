@@ -1,0 +1,26 @@
+CC     = "F:\R2016b\sys\lcc64\lcc64\bin\lcc64.exe"
+LD     = "F:\R2016b\sys\lcc64\lcc64\bin\lcclnk64.exe"
+LIBCMD = "F:\R2016b\sys\lcc64\lcc64\bin\lcclib64.exe"
+CFLAGS = -dll -noregistrylookup  -c -Zp8 -DLCC_WIN64 -DMATLAB_MEX_FILE -DMX_COMPAT_32 -nodeclspec 
+LDFLAGS = -s -dll -L"F:\R2016b\sys\lcc64\lcc64\lib64" -entry LibMain -map sfun.map 
+LIBFLAGS = 
+
+OBJECTS = \
+	"threeLinks_opt_joint_limit_sfun.obj"\
+	"c4_threeLinks_opt_joint_limit.obj"\
+	"threeLinks_opt_joint_limit_sfun_registry.obj"\
+	"lccstub.obj"\
+
+INCLUDE_PATH= -I"F:\R2016b\sys\lcc64\lcc64\include64"  -I"F:\R2016b\extern\include"  -I"F:\R2016b\simulink\include"  -I"F:\R2016b\simulink\include\sf_runtime"  -I"F:\R2016b\stateflow\c\mex\include"  -I"F:\R2016b\rtw\c\src"  -I"D:\matlab_ws\Robotics\AR_HW2\InverseKinematics\slprj\_sfprj\threeLinks_opt_joint_limit\_self\sfun\src" 
+ 
+
+threeLinks_opt_joint_limit_sfun.mexw64 : $(MAKEFILE) $(OBJECTS)
+	$(LD) $(LDFLAGS) -o threeLinks_opt_joint_limit_sfun.mexw64 @threeLinks_opt_joint_limit_sfun.lmko
+threeLinks_opt_joint_limit_sfun.obj :	"threeLinks_opt_joint_limit_sfun.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "threeLinks_opt_joint_limit_sfun.c"
+c4_threeLinks_opt_joint_limit.obj :	"c4_threeLinks_opt_joint_limit.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c4_threeLinks_opt_joint_limit.c"
+threeLinks_opt_joint_limit_sfun_registry.obj :	"threeLinks_opt_joint_limit_sfun_registry.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "threeLinks_opt_joint_limit_sfun_registry.c"
+lccstub.obj :	"F:\R2016b\sys\lcc64\lcc64\mex\lccstub.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "F:\R2016b\sys\lcc64\lcc64\mex\lccstub.c"
