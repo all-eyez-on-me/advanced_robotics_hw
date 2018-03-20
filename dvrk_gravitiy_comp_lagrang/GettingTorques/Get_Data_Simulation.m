@@ -6,9 +6,9 @@ rosshutdown
 rosinit
 n = 15 ;
 waiting_time = 5;
-sub_tor = rossubscriber('/dvrk/MTMR/joint_states');
-sub_pos = rossubscriber('/dvrk/MTMR/joint_states');
-pub_pos = rospublisher('/dvrk/MTMR/desired_state', 'sensor_msgs/JointState');
+sub_tor = rossubscriber('/dvrk/MTMR/state_joint_current');
+sub_pos = rossubscriber('/dvrk/MTMR/state_joint_current');
+pub_pos = rospublisher('/dvrk/MTMR/set_position_joint', 'sensor_msgs/JointState');
 %Set_Position(pub_pos, qs(:,i));
 saved_data = zeros(7,2,n);
 data = zeros(7,2,10);

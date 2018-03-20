@@ -1,4 +1,4 @@
-dir_name = dir('Data');
+dir_name = dir('Luke Data');
 dir_name = dir_name(3:end,:);
 data_set = length(dir_name)
 

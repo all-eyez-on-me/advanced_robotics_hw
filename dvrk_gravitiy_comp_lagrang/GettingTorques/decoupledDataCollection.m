@@ -6,9 +6,9 @@ function [torque_data,actual_position] = decoupledDataCollection()
     q_min = [-0.6981,-0.2618, -0.8727, -3.4907, -1.5708 ,-0.7854,-8.3776];
     q_max = [1.1345, 0.8727 , 0.6109 ,  1.5708 , 3.1416, 0.7854,7.8540];
     
-    q_min_start = (q_max-q_min)*0.1+q_min;
+    q_min_start = (q_max-q_min)*0.2+q_min;
     %The distance for one step, 10 steps in total. 
-    q_delta     = (q_max-q_min)*0.8/10;
+    q_delta     = (q_max-q_min)*0.6/10;
     
     decouple_num = 5
     states_joint_num = 7;
@@ -18,7 +18,7 @@ function [torque_data,actual_position] = decoupledDataCollection()
     % This function is for data collection for each joint torque of the MTM
     % (the joints are decoupled)
     sub_pos = rossubscriber('/dvrk/MTMR/state_joint_current');
-    sub_tor = rossubscriber('/dvrk/MTMR/state_joint_current');
+    sub_tor = rossubscriber('/dvrk/MTMR/state_joint_desired');
     pub_pos = rospublisher('/dvrk/MTMR/set_position_joint');
     
     % torque_data = (recorded_torque,jth_pose,ith_joint)
