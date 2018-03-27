@@ -57,8 +57,10 @@ legend('T1_error','T2_error','T3_error','T4_error','T5_error','T6_error','T7_err
 error_plot = zeros(7,1)
 
 i = 0;
+count =0
 
 while i ~= 1
+  count=count+1
 % for i = 1:100
   qs = Get_Position(sub_pos);
   vel = Get_Velocity(sub_vel);
@@ -107,14 +109,16 @@ while i ~= 1
 %   effort_table(:,i)=effort(:);
 %   pos_table(:,i)=[q1;q2;q3;q4;q5;q6;q7];
   compare_torque = [effort G_Torques];
-  error_plot = [error_plot,effort - G_Torques];
-  for k = 1:7
+  if(mod(count,5)==0)
+    error_plot = [error_plot,effort - G_Torques];
+    for k = 1:7
       plot(error_plot(k,:));
       hold on;
+    end
   end
   hold off;
   title('Error between computed gravity torque and current acutal torque')
-  legend('T1 Error','T2 Error','T3 Error','T4 Error','T5 Error','T6 Error','T7 Error');
+  legend('T0 Error','T2 Error','T3 Error','T4 Error','T5 Error','T6 Error','T7 Error');
   loop = loop+1;
   display(loop)
   time = r.TotalElapsedTime;
