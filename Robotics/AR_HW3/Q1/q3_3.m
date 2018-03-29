@@ -24,10 +24,13 @@ for t = delta:delta:5
     r_norm = [r_norm, r_tmp.'];
     a_norm = [a_norm, a_tmp.'];
 end
+
+[n_max,i_max] = max(a_norm(1,:));
 for  j = 1:length(M)    
-    [n_max,i_max] = max(a_norm(j,:));
+    [n__,i_max] = max(a_norm(j,:));
     a_norm(j,:) = a_norm(j,:)/n_max;
     x_max(j) = (i_max-1)*delta;   
+    y_max(j) = n__/n_max;
 end
 for j = 1:length(M)
     plot(r_norm(j,:),a_norm(j,:),line_style{j})
@@ -36,7 +39,7 @@ end
 legend('k=1','k=1.25','k=1.5','k=1.75');
 
 for j = 1:length(M)
-    plot([x_max(j) x_max(j)],[0 1],'--k');
+    plot([x_max(j) x_max(j)],[0 y_max(j)],'--k');
 end
 
 title('Plot of normalized transmission ratio r* against normalized acceleration a* with different k, M_{new}=k*M');
