@@ -1,6 +1,7 @@
 d_size = size(desired_effort);
 Torques_data = zeros(d_size(1),2,d_size(2));
 data_array = zeros(1,7);
+%First Filter out Point out of 1 std, then find the index whose value close to mean
 for i=1:d_size(2)
     for j=1:d_size(1)
         for k=1:d_size(3)
